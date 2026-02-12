@@ -52,8 +52,9 @@ android {
     targetCompatibility JavaVersion.VERSION_1_8
   }
 
+  // Match host app JVM (Expo 54 / RN 0.74+ use 17). Override with PdfPageImage_kotlinJvmTarget if needed.
   kotlinOptions {
-    jvmTarget = "11"
+    jvmTarget = getExtOrDefault('kotlinJvmTarget') ?: '17'
   }
 }
 
